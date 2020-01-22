@@ -9,9 +9,13 @@ class App extends Component {
   // render보다 먼저 실행되면서 그 컴포넌트를 초기화 시켜주고 싶은 코드는 constructor함수 안에다가 코드를 작성한다.
   constructor(props){
     super(props);
-
     this.state = {
-      subject:{title: 'WEB', sub:'World Wide WEB!'}
+      subject:{title: 'WEB', sub:'World Wide WEB!'},
+      contents:[
+        {id: 1, title:'HTML', desc:'HTML is for information'},
+        {id: 2, title:'CSS', desc:'CSS is for design'},
+        {id: 3, title:'Javascript', desc:'Javascript is for interactive'}
+      ]
     }
   }
   render(){
@@ -21,7 +25,8 @@ class App extends Component {
           title={this.state.subject.title} 
           sub={this.state.subject.sub}>            
           </Subject>
-        <Content title="HTML" desc="HTML is HyperText Markup Language."></Content>
+          <TOC data={this.state.contents}></TOC>
+          <Content title="HTML" desc="HTML is HyperText Markup Language."></Content>
       </div>
     );
   }
