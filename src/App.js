@@ -1,98 +1,32 @@
-// import React from 'react';
-// import logo from './logo.svg';
 import React, { Component } from 'react';
+import TOC from "./components/TOC";
+import Content from "./components/Content";
+import Subject from "./components/Subject";
 import './App.css';
 
+// state와 props 이해하기
+class App extends Component {
+  // render보다 먼저 실행되면서 그 컴포넌트를 초기화 시켜주고 싶은 코드는 constructor함수 안에다가 코드를 작성한다.
+  constructor(props){
+    super(props);
 
-/*
-class Subject extends Component { // subject라는 컴포넌트를 만들겠다.
-  render() { // render라는 함수가 반드시 필요하다.
-    return ( // **하나의 최상위 태그만 사용해야 한다.
-      <header>
-        <h1>WEB</h1>
-        world wide web!
-      </header>
-    );
+    this.state = {
+      subject:{title: 'WEB', sub:'World Wide WEB!'}
+    }
   }
-}
-*/
-
-class TOC extends Component {
-  render() {
-    return (
-      <nav>
-        <ul>
-          <li><a href="1.html">HTML</a></li>
-          <li><a href="2.css">CSS</a></li>
-          <li><a href="3.js">JS</a></li>
-        </ul>
-      </nav>
-    );
-  }
-}
-
-/*
-class Content extends Component{
   render(){
     return(
-      <article>
-            <h2>HTML</h2>
-            HTML is HyperText Markup Language.
-        </article>  
-    );
-  }
-}
-*/
-
-class Subject extends Component {
-  render() {
-    return (
-      <header>
-        <h1>{this.props.title}</h1>
-        {this.props.sub}
-      </header>
-    );
-  }
-}
-
-
-
-class App extends Component {
-  render() {
-    return (
       <div className="App">
-        <Subject title="WEB" sub="world wide web!"></Subject>
-        <Subject title="React" sub="For UI"></Subject>
-        <TOC></TOC>
+        <Subject 
+          title={this.state.subject.title} 
+          sub={this.state.subject.sub}>            
+          </Subject>
         <Content title="HTML" desc="HTML is HyperText Markup Language."></Content>
       </div>
     );
   }
 }
 
-
-
-/*
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-*/
+// 상위 컴포넌트(App)의 State값을 하위 컴포넌트에 props값으로 전달했다.
 
 export default App;
