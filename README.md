@@ -1,4 +1,4 @@
-# React Component를 생성해서 화면구현 해보기
+## React Component를 생성해서 화면구현 해보기
 create-react-app으로 개발환경 구축
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
